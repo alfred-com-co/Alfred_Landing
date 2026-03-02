@@ -441,7 +441,7 @@ export function IndustryRecognition() {
                                 }}
                                 className="relative w-16 md:w-32 h-auto opacity-40 grayscale hover:grayscale-0 transition-all duration-200 cursor-pointer flex items-center justify-center"
                             >
-                                <img
+                                <Image
                                     src={logo}
                                     alt="Press Recognition"
                                     className="w-full h-auto object-contain"
