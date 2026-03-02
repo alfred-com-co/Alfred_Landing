@@ -68,6 +68,7 @@ jobs:
           SLACK_WEBHOOK_ALIADOS=${{ secrets.SLACK_WEBHOOK_ALIADOS }}
           SLACK_WEBHOOK_CONVENIOS=${{ secrets.SLACK_WEBHOOK_CONVENIOS }}
           SLACK_WEBHOOK_NOSOTROS=${{ secrets.SLACK_WEBHOOK_NOSOTROS }}
+          GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
           EOF
 
       - name: Build Docker image
