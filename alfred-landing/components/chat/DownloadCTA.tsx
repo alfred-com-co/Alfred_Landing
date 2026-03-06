@@ -3,6 +3,9 @@
 import { motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { DOWNLOAD_LINK } from "@/lib/constants";
+import Link from "next/link";
 
 export function DownloadCTA() {
     return (
@@ -24,19 +27,24 @@ export function DownloadCTA() {
                 Has alcanzado tu límite diario de consulta gratuita. Descarga nuestra App para tener a Alfred 24/7 en tu bolsillo.
             </p>
 
-            {/* QR Placeholder */}
-            <div className="aspect-square w-48 mx-auto bg-white/5 border-2 border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center mb-8 group hover:border-alfred-lime/30 transition-colors">
-                <svg fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-12 h-12 text-white/20 mb-2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 3.75 9.375v-4.5ZM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5ZM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 13.5 9.375v-4.5Z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 6.75h.75v.75h-.75v-.75ZM6.75 16.5h.75v.75h-.75v-.75ZM16.5 6.75h.75v.75h-.75v-.75ZM13.5 13.5h.75v.75h-.75v-.75ZM13.5 19.5h.75v.75h-.75v-.75ZM19.5 13.5h.75v.75h-.75v-.75ZM19.5 19.5h.75v.75h-.75v-.75ZM16.5 16.5h.75v.75h-.75v-.75Z" />
-                </svg>
-                <span className="text-[10px] font-bold text-white/20 uppercase tracking-[0.2em]">Escanea para Descargar</span>
+            {/* QR Code (Desktop Only) */}
+            <div className="hidden md:block w-48 h-48 mx-auto bg-white rounded-2xl p-3 mb-8 group transition-all duration-300 shadow-[0_0_20px_rgba(180,251,0,0.1)] hover:shadow-[0_0_30px_rgba(180,251,0,0.2)] overflow-hidden">
+                <div className="relative w-full h-full">
+                    <Image
+                        src="/images/qr/codigo.webp"
+                        alt="Escanea para descargar Alfred"
+                        fill
+                        className="object-contain"
+                    />
+                </div>
             </div>
 
             <div className="flex flex-col gap-3">
-                <Button className="w-full bg-alfred-lime text-alfred-navy font-black rounded-xl h-14">
-                    Ir a App Store
-                </Button>
+                <Link href={DOWNLOAD_LINK} target="_blank" rel="noopener noreferrer" className="w-full">
+                    <Button className="w-full bg-alfred-lime text-alfred-navy font-black rounded-xl h-14">
+                        Ir a App Store
+                    </Button>
+                </Link>
                 <Button variant="ghost" className="text-white/40 hover:text-white">
                     Más tarde
                 </Button>
