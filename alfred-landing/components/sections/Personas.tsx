@@ -72,8 +72,8 @@ export function Personas() {
                         )}
                     </AnimatePresence>
 
-                    {/* Fixed Height Main Container with overflow-hidden */}
-                    <div className="relative bg-[#0B1226] border border-white/10 rounded-[2rem] min-h-[600px] lg:min-h-[550px] z-10 transition-colors duration-500 shadow-2xl overflow-hidden flex">
+                    {/* Responsive Container with dynamic height */}
+                    <div className="relative bg-[#0B1226] border border-white/10 rounded-[2rem] min-h-fit md:min-h-[600px] lg:min-h-[550px] z-10 transition-colors duration-500 shadow-2xl overflow-hidden">
 
                         <AnimatePresence mode="wait">
                             {activeTab === "convenio" ? (
@@ -83,7 +83,7 @@ export function Personas() {
                                     animate={{ opacity: 1, x: 0 }}
                                     exit={{ opacity: 0, x: 20 }}
                                     transition={{ duration: 0.4 }}
-                                    className="flex flex-col md:grid md:grid-cols-2 w-full h-full min-h-[600px] lg:min-h-[550px] absolute inset-0"
+                                    className="flex flex-col md:grid md:grid-cols-2 w-full h-full md:absolute md:inset-0"
                                 >
                                     {/* Left Column (Text & Action) - Centered */}
                                     <div className="flex flex-col justify-center space-y-6 pt-10 px-8 pb-4 md:p-12 lg:p-16 z-20 h-full bg-[#0B1226]/80 md:bg-transparent relative">
@@ -112,8 +112,8 @@ export function Personas() {
                                         </div>
                                     </div>
 
-                                    {/* Right Column (Visuals) - Bottom Bleed */}
-                                    <div className="relative w-full h-[300px] md:h-full flex items-end justify-center pt-10 px-6 lg:px-12 z-10 bg-gradient-to-br from-[#0B1226] to-[#151D3A]">
+                                    {/* Right Column (Visuals) - Hidden on Mobile */}
+                                    <div className="hidden md:flex relative w-full h-full items-end justify-center pt-10 px-6 lg:px-12 z-10 bg-gradient-to-br from-[#0B1226] to-[#151D3A]">
                                         <div className="relative w-full max-w-[320px] aspect-[1/1.6] -mb-[5%] md:-mb-10 transition-transform duration-700 hover:scale-[1.03]">
                                             <Image
                                                 src="/images/key-visuals/prime.png"
@@ -131,7 +131,7 @@ export function Personas() {
                                     animate={{ opacity: 1, x: 0 }}
                                     exit={{ opacity: 0, x: 20 }}
                                     transition={{ duration: 0.4 }}
-                                    className="flex flex-col md:grid md:grid-cols-2 w-full h-full min-h-[600px] lg:min-h-[550px] absolute inset-0"
+                                    className="flex flex-col md:grid md:grid-cols-2 w-full h-full md:absolute md:inset-0"
                                 >
                                     {/* Left Column (Text & Action) - Centered */}
                                     <div className="flex flex-col justify-center space-y-6 pt-10 px-8 pb-4 md:p-12 lg:p-16 z-20 h-full bg-[#0B1226]/80 md:bg-transparent relative">
@@ -161,8 +161,8 @@ export function Personas() {
                                         </div>
                                     </div>
 
-                                    {/* Right Column (Visuals) - Bottom Bleed */}
-                                    <div className="relative w-full h-[300px] md:h-full flex items-end justify-center pt-10 px-8 lg:px-12 z-10 bg-gradient-to-br from-[#0B1226] to-[#0A1128]">
+                                    {/* Right Column (Visuals) - Hidden on Mobile */}
+                                    <div className="hidden md:flex relative w-full h-full items-end justify-center pt-10 px-8 lg:px-12 z-10 bg-gradient-to-br from-[#0B1226] to-[#0A1128]">
                                         {/* Phone UI Graphic anchored strictly to the bottom */}
                                         <div className="relative w-[90%] max-w-[340px] aspect-[1/1.5] -mb-[5%] md:-mb-10 transition-transform duration-700 hover:scale-[1.03]">
                                             <Image
