@@ -184,7 +184,7 @@ export function ImpactCards() {
                                     style={{ background: `radial-gradient(circle at center, ${item.color}, transparent 70%)` }}
                                 />
                                 <div className="relative w-32 h-16 md:w-48 md:h-24 mb-6 flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
-                                    <Image src={item.logo} alt={item.name} fill className="object-contain drop-shadow-lg" />
+                                    <Image src={item.logo} alt={item.name} fill className="object-contain drop-shadow-lg" sizes="(max-width: 768px) 128px, 192px" />
                                 </div>
                                 <div className="mb-4">
                                     <span className="text-5xl lg:text-7xl font-black tracking-tighter" style={{ color: item.color }}>
@@ -368,7 +368,7 @@ export function ClientMarquee() {
                                     }}
                                     className="relative w-44 h-18 flex-shrink-0 opacity-30 hover:opacity-100 transition-all duration-200 grayscale hover:grayscale-0 hover:scale-115 cursor-pointer hover:!z-20 drop-shadow-[0_10px_20px_rgba(0,0,0,0.3)]"
                                 >
-                                    <Image src={logo} alt="Client" fill className="object-contain" />
+                                    <Image src={logo} alt="Client" fill className="object-contain" sizes="176px" />
                                 </motion.div>
                             ))}
                         </div>
@@ -391,7 +391,7 @@ export function ClientMarquee() {
                                     }}
                                     className="relative w-44 h-18 flex-shrink-0 opacity-30 hover:opacity-100 transition-all duration-500 grayscale hover:grayscale-0 hover:scale-115 cursor-pointer hover:!z-20 drop-shadow-[0_10px_20px_rgba(0,0,0,0.3)]"
                                 >
-                                    <Image src={logo} alt="Client" fill className="object-contain" />
+                                    <Image src={logo} alt="Client" fill className="object-contain" sizes="176px" />
                                 </motion.div>
                             ))}
                         </div>
@@ -461,7 +461,7 @@ export function IndustryRecognition() {
                     >
                         <span className="text-white/40 text-[10px] md:text-sm font-black uppercase tracking-[0.3em]">Powered by</span>
                         <div className="relative w-24 h-8">
-                            <Image src="/blanco.png" alt="Alfred Logo" fill className="object-contain" />
+                            <Image src="/blanco.png" alt="Alfred Logo" fill className="object-contain" sizes="100px" />
                         </div>
                     </motion.div>
                 </div>
@@ -580,7 +580,7 @@ export function SocialProof({ mode }: SocialProofProps) {
                                         style={{ background: `radial-gradient(circle at center, ${item.color}, transparent 70%)` }}
                                     />
                                     <div className="relative w-32 h-16 md:w-48 md:h-24 mb-6 flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
-                                        <Image src={item.logo} alt={item.name} fill className="object-contain drop-shadow-lg" />
+                                        <Image src={item.logo} alt={item.name} fill className="object-contain drop-shadow-lg" sizes="(max-width: 768px) 128px, 192px" />
                                     </div>
                                     <div className="mb-4">
                                         <span className="text-5xl lg:text-7xl font-black tracking-tighter" style={{ color: item.color }}>
@@ -753,7 +753,7 @@ export function SocialProof({ mode }: SocialProofProps) {
                                             }}
                                             className="relative w-44 h-18 flex-shrink-0 opacity-30 hover:opacity-100 transition-all duration-200 grayscale hover:grayscale-0 hover:scale-115 cursor-pointer hover:!z-20 drop-shadow-[0_10px_20px_rgba(0,0,0,0.3)]"
                                         >
-                                            <Image src={logo} alt="Client" fill className="object-contain" />
+                                            <Image src={logo} alt="Client" fill className="object-contain" sizes="176px" />
                                         </motion.div>
                                     ))}
                                 </div>
@@ -776,7 +776,7 @@ export function SocialProof({ mode }: SocialProofProps) {
                                             }}
                                             className="relative w-44 h-18 flex-shrink-0 opacity-30 hover:opacity-100 transition-all duration-500 grayscale hover:grayscale-0 hover:scale-115 cursor-pointer hover:!z-20 drop-shadow-[0_10px_20px_rgba(0,0,0,0.3)]"
                                         >
-                                            <Image src={logo} alt="Client" fill className="object-contain" />
+                                            <Image src={logo} alt="Client" fill className="object-contain" sizes="176px" />
                                         </motion.div>
                                     ))}
                                 </div>
@@ -839,7 +839,7 @@ export function SocialProof({ mode }: SocialProofProps) {
                         >
                             <span className="text-white/40 text-[10px] md:text-sm font-black uppercase tracking-[0.3em]">Powered by</span>
                             <div className="relative w-24 h-8">
-                                <Image src="/blanco.png" alt="Alfred Logo" fill className="object-contain" />
+                                <Image src="/blanco.png" alt="Alfred Logo" fill className="object-contain" sizes="100px" />
                             </div>
                         </motion.div>
                     </div>

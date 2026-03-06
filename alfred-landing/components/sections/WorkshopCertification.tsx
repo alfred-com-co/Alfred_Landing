@@ -24,6 +24,7 @@ export function WorkshopCertification() {
                             fill
                             // En móvil se alinea abajo, en desktop al centro
                             className="object-contain object-bottom md:object-center"
+                            sizes="(max-width: 768px) 80vw, 40vw"
                         />
                     </div>
 

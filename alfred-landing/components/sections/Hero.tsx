@@ -267,12 +267,12 @@ export function Hero({ mode, setMode }: HeroProps) {
                                         {/* QR Section */}
                                         <div className="hidden xl:flex items-center gap-6 cursor-pointer group">
                                             <div className="relative w-24 h-24 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
-                                                <Image src="/images/qr/codigo.webp" alt="Descarga Alfred" fill className="object-contain p-1" />
+                                                <Image src="/images/qr/codigo.webp" alt="Descarga Alfred" fill className="object-contain p-1" sizes="96px" priority />
                                             </div>
                                             <div className="flex flex-col justify-center h-full gap-3">
                                                 <span className="text-sm text-white/90 uppercase tracking-[0.15em] font-black leading-none">Descárgala en</span>
                                                 <div className="relative w-40 h-12 opacity-100 transition-transform duration-300 group-hover:translate-x-1">
-                                                    <Image src="/images/qr/tienda.png" alt="App Store & Google Play" fill className="object-contain object-left" />
+                                                    <Image src="/images/qr/tienda.png" alt="App Store & Google Play" fill className="object-contain object-left" sizes="160px" priority />
                                                 </div>
                                             </div>
                                         </div>
@@ -325,6 +325,7 @@ export function Hero({ mode, setMode }: HeroProps) {
                                     // object-center garantiza que ambas fotos floten exactamente en el mismo centro matemático de la caja
                                     className="drop-shadow-2xl object-contain object-center"
                                     priority
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
                             </motion.div>
                         </div>

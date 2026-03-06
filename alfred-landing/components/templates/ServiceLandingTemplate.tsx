@@ -99,6 +99,7 @@ export default function ServiceLandingTemplate({
                         alt={data.name}
                         fill
                         className="object-cover opacity-30 md:opacity-40 grayscale-[0.5]"
+                        sizes="100vw"
                         priority
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-[#111E3E]/60 via-[#111E3E] to-[#111E3E] md:bg-gradient-to-r md:from-[#111E3E] md:via-[#111E3E]/80 md:to-transparent" />

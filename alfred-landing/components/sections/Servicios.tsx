@@ -144,6 +144,7 @@ export function Servicios({ mode = "personal" }: ServiciosProps) {
                                         alt={service.title}
                                         fill
                                         className="object-cover opacity-60 transition-transform duration-700 group-hover:scale-105"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                                     />
                                     {/* Gradient Overlay for text readability */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-alfred-dark via-alfred-dark/50 to-transparent" />
@@ -168,6 +169,7 @@ export function Servicios({ mode = "personal" }: ServiciosProps) {
                                             alt={service.title}
                                             fill
                                             className="object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                                            sizes="(max-width: 1024px) 128px, 160px"
                                         />
                                     </motion.div>
                                 </div>

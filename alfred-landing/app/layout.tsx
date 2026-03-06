@@ -23,6 +23,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://alfred.com.co'),
   title: "Alfred | Tu ecosistema de servicios automotrices",
   description: "Alfred conecta tu vehículo con seguros, talleres, conductores y todo lo que necesitas. Sin fricción.",
   icons: {

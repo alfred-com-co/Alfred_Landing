@@ -87,7 +87,7 @@ export function Nosotros() {
                         alt="Alfred Logo Watermark"
                         fill
                         className="object-contain"
-                        priority
+                        sizes="(max-width: 1024px) 30vw, 19vw"
                     />
                 </div>
             </motion.div>

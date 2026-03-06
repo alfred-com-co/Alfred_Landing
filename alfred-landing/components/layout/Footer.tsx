@@ -90,7 +90,7 @@ export function Footer() {
                                 alt="Alfred"
                                 fill
                                 className="object-contain object-left"
-                                priority
+                                sizes="160px"
                             />
                         </Link>
                         <p className="text-white/40 text-sm max-w-sm leading-relaxed">

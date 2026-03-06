@@ -120,6 +120,7 @@ export function Personas() {
                                                 alt="Alfred para Personas"
                                                 fill
                                                 className="object-contain object-center drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
+                                                sizes="(max-width: 1024px) 320px, 400px"
                                             />
                                         </div>
                                     </div>
@@ -170,6 +171,7 @@ export function Personas() {
                                                 alt="App Alfred Servicios"
                                                 fill
                                                 className="object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
+                                                sizes="(max-width: 1024px) 340px, 400px"
                                             />
                                         </div>
                                     </div>

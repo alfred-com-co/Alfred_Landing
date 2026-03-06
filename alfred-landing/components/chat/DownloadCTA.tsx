@@ -35,6 +35,7 @@ export function DownloadCTA() {
                         alt="Escanea para descargar Alfred"
                         fill
                         className="object-contain"
+                        sizes="192px"
                     />
                 </div>
             </div>
