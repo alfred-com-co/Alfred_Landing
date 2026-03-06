@@ -50,7 +50,7 @@ export default function PrivacyPolicyAndGuaranteePage() {
             El registro del cliente en este sitio constituye una condición indispensable para acceder a los servicios y productos ofrecidos por los Aliados a través de ALFRED. Para ello, el Usuario debe registrar en la aplicación móvil los datos básicos requeridos y que se relacionan más adelante, los cuales se considerarán como fidedignos. El registro del cliente en la Plataforma implica el conocimiento y aceptación de los términos y condiciones descritos en el presente documento.
           </p>
           <p>
-            El usuario inscrito podrá solicitar la rectificación, eliminación y/o cancelación de sus datos cuando lo estime conveniente, de acuerdo con el procedimiento para ellos previsto en la Política de Tratamiento de Datos Personales de ALFRED.
+            No obstante, si el Usuario mantiene una membresía activa, un servicio en curso o un pago pendiente, la solicitud de retiro será atendida una vez dichas condiciones finalicen. Esto garantiza la correcta prestación de los servicios adquiridos y la protección de los derechos tanto del Usuario como de los Aliados de ALFRED.
           </p>
           <p>
             (a) Para acceder a cualquiera de los servicios que serán prestados por los Aliados de ALFRED a través de la Plataforma, el registro constituye una condición indispensable. Para el registro, es obligatorio completar el formulario de registro, usando datos válidos y veraces, en todos los campos marcados como obligatorios. Es su deber como usuario actualizar los datos suministrados, conforme resulte aplicable. El formulario de registro solicitará, cómo mínimo la siguiente información:
