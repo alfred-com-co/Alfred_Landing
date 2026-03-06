@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import { LandingPage } from "@/components/LandingPage";
 import { Suspense } from "react";
 import { Metadata } from "next";
