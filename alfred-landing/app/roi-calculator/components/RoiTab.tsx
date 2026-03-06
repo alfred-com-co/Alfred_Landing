@@ -13,6 +13,11 @@ interface RoiTabProps {
 }
 
 export const RoiTab: React.FC<RoiTabProps> = ({ roiState, onRoiChange, numVehicles, setNumVehicles }) => {
+    const [isMounted, setIsMounted] = React.useState(false);
+
+    React.useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
     const calculations = useMemo(() => {
         // 1. Annualize Monthly Expenses per Vehicle -> Total Annual Spend
@@ -142,30 +147,32 @@ export const RoiTab: React.FC<RoiTabProps> = ({ roiState, onRoiChange, numVehicl
                 {/* CHART */}
                 <div className="bg-alfred-surface/50 p-6 rounded-2xl border border-white/5 h-[300px] flex flex-col">
                     <h3 className="text-lg font-bold text-white mb-4">Comparativa de Costos Anuales</h3>
-                    <div className="flex-1 w-full">
-                        <ResponsiveContainer width="100%" height="100%">
-                            <BarChart data={chartData} layout="vertical" margin={{ top: 5, right: 30, left: 40, bottom: 5 }}>
-                                <XAxis type="number" hide />
-                                <YAxis
-                                    type="category"
-                                    dataKey="name"
-                                    tick={{ fill: '#94a3b8', fontSize: 12 }}
-                                    width={100}
-                                    axisLine={false}
-                                    tickLine={false}
-                                />
-                                <Tooltip
-                                    cursor={{ fill: 'rgba(255,255,255,0.05)' }}
-                                    contentStyle={{ backgroundColor: '#111e3e', borderColor: '#334155', color: '#fff' }}
-                                    formatter={(value: any) => formatCurrency(value as number)}
-                                />
-                                <Bar dataKey="amount" radius={[0, 4, 4, 0]} barSize={40}>
-                                    {chartData.map((entry, index) => (
-                                        <Cell key={`cell-${index}`} fill={entry.color} />
-                                    ))}
-                                </Bar>
-                            </BarChart>
-                        </ResponsiveContainer>
+                    <div className="flex-1 w-full min-h-[250px]">
+                        {isMounted && (
+                            <ResponsiveContainer width="100%" height="100%">
+                                <BarChart data={chartData} layout="vertical" margin={{ top: 5, right: 30, left: 40, bottom: 5 }}>
+                                    <XAxis type="number" hide />
+                                    <YAxis
+                                        type="category"
+                                        dataKey="name"
+                                        tick={{ fill: '#94a3b8', fontSize: 12 }}
+                                        width={100}
+                                        axisLine={false}
+                                        tickLine={false}
+                                    />
+                                    <Tooltip
+                                        cursor={{ fill: 'rgba(255,255,255,0.05)' }}
+                                        contentStyle={{ backgroundColor: '#111e3e', borderColor: '#334155', color: '#fff' }}
+                                        formatter={(value: any) => formatCurrency(value as number)}
+                                    />
+                                    <Bar dataKey="amount" radius={[0, 4, 4, 0]} barSize={40}>
+                                        {chartData.map((entry, index) => (
+                                            <Cell key={`cell-${index}`} fill={entry.color} />
+                                        ))}
+                                    </Bar>
+                                </BarChart>
+                            </ResponsiveContainer>
+                        )}
                     </div>
                 </div>
 

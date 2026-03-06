@@ -162,7 +162,7 @@ export function CommandCenter() {
                                         transition={{ duration: 0.3 }}
                                         className="absolute inset-0"
                                     >
-                                        <Image src={features[activeIndex].image} alt={features[activeIndex].title} fill className="object-cover" />
+                                        <Image src={features[activeIndex].image} alt={features[activeIndex].title} fill className="object-cover" sizes="(max-width: 1280px) 50vw, 60vw" />
                                     </motion.div>
                                 </AnimatePresence>
                             </div>
@@ -222,6 +222,7 @@ export function CommandCenter() {
                                         alt={features[activeIndex].title}
                                         fill
                                         className="object-cover"
+                                        sizes="100vw"
                                         priority
                                     />
                                     <div className="absolute inset-0 bg-black/10" />

@@ -18,7 +18,7 @@ export function Conductores({ mode = "personal" }: ConductoresProps) {
                 {/* Imagen del Conductor - Ocupa la pantalla en desktop, el top en mobile */}
                 <div className="absolute top-0 left-0 w-full h-[55vh] lg:h-full overflow-hidden">
                     <NextImage
-                        src="/images/sections/conductores_bg_V2.png"
+                        src="/images/sections/conductores_bg_V2.webp"
                         alt="Alfred Driver Elite"
                         fill
                         className="object-cover object-center lg:object-center lg:scale-100"

@@ -239,7 +239,7 @@ function ConnectionDiagram() {
             >
                 <div className="w-32 h-32 md:w-44 md:h-44 lg:w-[200px] lg:h-[200px] xl:w-[285px] xl:h-[285px] flex items-center justify-center transition-all duration-500 relative bg-[#0B1226] rounded-full lg:bg-transparent">
                     <NextImage
-                        src="/images/convenios/empresa.png"
+                        src="/images/convenios/empresa.webp"
                         alt="Tu Empresa"
                         fill
                         className="object-contain opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 p-2"
@@ -315,7 +315,7 @@ function ConnectionDiagram() {
                         className="absolute inset-0 bg-radial-gradient from-alfred-lime to-transparent"
                     />
                     <NextImage
-                        src="/images/convenios/cliente.png"
+                        src="/images/convenios/cliente.webp"
                         alt="Cliente Final"
                         fill
                         className="object-contain opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 p-2"
@@ -421,7 +421,7 @@ function BusinessView() {
 
                             body: "Tu marca en el bolsillo del conductor 24/7. Convierte un servicio puntual en una relación diaria.",
 
-                            image: "/images/convenios/fidelizacion_panel.png",
+                            image: "/images/convenios/fidelizacion_panel.webp",
 
                             color: "magenta-500",
 
@@ -437,7 +437,7 @@ function BusinessView() {
 
                             body: "Conoce el vehículo de tu cliente mejor que él mismo. Kilometraje, SOAT, mantenimientos y hábitos.",
 
-                            image: "/images/convenios/data_panel.png",
+                            image: "/images/convenios/data_panel.webp",
 
                             color: "alfred-lime",
 
@@ -453,7 +453,7 @@ function BusinessView() {
 
                             body: "Monetiza la post-venta automotriz sin mover un dedo. Comisiones por servicios que ya necesitan.",
 
-                            image: "/images/convenios/ingresos_panel.png",
+                            image: "/images/convenios/ingresos_panel.webp",
 
                             color: "blue-400",
 
@@ -1027,7 +1027,7 @@ export function Convenios({ mode }: ConveniosProps) {
 
                                                     <NextImage
 
-                                                        src={isMapfre ? '/images/logos/iphone_mockup_mapfreV3.png' : '/images/logos/iphone_mockup_zurichV3.png'}
+                                                        src={isMapfre ? '/images/logos/iphone_mockup_mapfreV3.webp' : '/images/logos/iphone_mockup_zurichV3.webp'}
 
                                                         alt={insurer.name}
 

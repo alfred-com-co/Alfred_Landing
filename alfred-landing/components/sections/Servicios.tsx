@@ -10,8 +10,8 @@ const services = [
         title: "Mecánica Experta",
         slug: "mecanica-experta",
         subtitle: <span className="text-white/40">Diagnóstico y <span className="text-alfred-lime">precisión</span></span>,
-        bgImage: "/images/services/service_mecanica.png",
-        icon: "/images/icono_servicios/mecanica.png",
+        bgImage: "/images/services/service_mecanica.webp",
+        icon: "/images/icono_servicios/mecanica.webp",
         glow: "rgba(34, 211, 238, 0.4)", // Cyan
         gridClass: "md:col-span-8 md:row-span-2",
         iconClass: "w-24 h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 right-6 bottom-6 drop-shadow-2xl",
@@ -21,8 +21,8 @@ const services = [
         title: "Lavado & Detailing",
         slug: "lavado-y-detailing",
         subtitle: <span className="text-white/40">Limpieza <span className="text-alfred-lime">premium</span></span>,
-        bgImage: "/images/services/service_lavado.png",
-        icon: "/images/icono_servicios/lavado.png",
+        bgImage: "/images/services/service_lavado.webp",
+        icon: "/images/icono_servicios/lavado.webp",
         glow: "rgba(251, 191, 36, 0.4)", // Amber
         gridClass: "md:col-span-4 md:row-span-1",
         iconClass: "w-24 h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 right-6 bottom-6 drop-shadow-2xl",
@@ -44,7 +44,7 @@ const services = [
         slug: "latoneria-y-pintura",
         subtitle: <span className="text-white/40">Acabados <span className="text-alfred-lime">perfectos</span></span>,
         bgImage: "/images/services/service_paint.avif",
-        icon: "/images/icono_servicios/pintura.png",
+        icon: "/images/icono_servicios/pintura.webp",
         glow: "rgba(168, 85, 247, 0.4)", // Purple
         gridClass: "md:col-span-6 md:row-span-1",
         iconClass: "w-24 h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 right-6 bottom-6 drop-shadow-2xl",
@@ -144,6 +144,7 @@ export function Servicios({ mode = "personal" }: ServiciosProps) {
                                         alt={service.title}
                                         fill
                                         className="object-cover opacity-60 transition-transform duration-700 group-hover:scale-105"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                                     />
                                     {/* Gradient Overlay for text readability */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-alfred-dark via-alfred-dark/50 to-transparent" />
@@ -168,6 +169,7 @@ export function Servicios({ mode = "personal" }: ServiciosProps) {
                                             alt={service.title}
                                             fill
                                             className="object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                                            sizes="(max-width: 1024px) 128px, 160px"
                                         />
                                     </motion.div>
                                 </div>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import Script from "next/script"; // <-- 1. IMPORTAMOS SCRIPT
+import { GoogleAnalytics } from "@next/third-parties/google"; // <-- 1. IMPORTAMOS GOOGLE ANALYTICS
 import "./globals.css";
 
 const gotham = localFont({
@@ -23,6 +23,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://alfred.com.co'),
   title: "Alfred | Tu ecosistema de servicios automotrices",
   description: "Alfred conecta tu vehículo con seguros, talleres, conductores y todo lo que necesitas. Sin fricción.",
   icons: {
@@ -42,25 +43,50 @@ export default function RootLayout({
         {/* ========================================= */}
         {/* 2. ETIQUETA GLOBAL DE GOOGLE ADS */}
         {/* ========================================= */}
-        <Script
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=AW-10955810536`}
-        />
-        <Script
-          id="google-ads-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-10955810536');
-            `,
-          }}
-        />
+        <GoogleAnalytics gaId="G-3SYJWSV7FV" />
+        {/* Google Ads Tag is actually often handled by the same gtag.js. 
+            If you need both explicitly, or if one is a sub-tag, 
+            GA4 often takes precedence as the primary container.
+            Update: Standard Next.js practice for dual tagging is to use the primary ID.
+        */}
         {/* ========================================= */}
 
         {children}
+
+        {/* ========================================= */}
+        {/* 3. SCHEMA.ORG (JSON-LD) - SEO SEMÁNTICO */}
+        {/* ========================================= */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Alfred",
+                "url": "https://alfred.com.co",
+                "logo": "https://alfred.com.co/images/logos/azul oscuro plano.png",
+                "sameAs": [
+                  "https://www.instagram.com/alfred_colombia/",
+                  "https://www.linkedin.com/company/alfred-automotriz/"
+                ],
+                "description": "Alfred conecta tu vehículo con seguros, talleres, conductores y todo lo que necesitas. Sin fricción."
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                "name": "Alfred Platform",
+                "operatingSystem": "iOS, Android, Web",
+                "applicationCategory": "AutomotiveBusinessApplication",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "0",
+                  "priceCurrency": "COP"
+                }
+              }
+            ])
+          }}
+        />
       </body>
     </html>
   );
