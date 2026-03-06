@@ -166,7 +166,7 @@ export function Personas() {
                                         {/* Phone UI Graphic anchored strictly to the bottom */}
                                         <div className="relative w-[90%] max-w-[340px] aspect-[1/1.5] -mb-[5%] md:-mb-10 transition-transform duration-700 hover:scale-[1.03]">
                                             <Image
-                                                src="/images/key-visuals/servicios.png"
+                                                src="/images/key-visuals/servicios.webp"
                                                 alt="App Alfred Servicios"
                                                 fill
                                                 className="object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"

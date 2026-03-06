@@ -15,31 +15,31 @@ const coreValues = [
         id: "v1",
         title: "Aprendemos todo el día.",
         description: "Aquí nadie viene a demostrar que sabe más, sino a entender mejor. Nos importa encontrar la mejor respuesta, aunque no sea la nuestra.",
-        visual: "/images/careers/aprendemos.png" // Using existing image as placeholder
+        visual: "/images/careers/aprendemos.webp" // Using existing image as placeholder
     },
     {
         id: "v2",
         title: "Hacemos las cosas bien, con el corazón.",
         description: "Si algo lleva nuestro nombre, tiene que estar bien hecho. Ya sea una línea de código o una llamada a un cliente, dejamos las cosas mejor de como las encontramos.",
-        visual: "/images/careers/hacemos.png"
+        visual: "/images/careers/hacemos.webp"
     },
     {
         id: "v3",
         title: "Nadie es culpable, todos somos responsables.",
         description: "Nos sentamos, lo entendemos y lo resolvemos juntos. Somos un equipo, y eso se nota en los momentos difíciles.",
-        visual: "/images/careers/responsables.png"
+        visual: "/images/careers/responsables.webp"
     },
     {
         id: "v4",
         title: "Medimos, analizamos y tomamos decisiones.",
         description: "La data decide. Probamos, medimos, aprendemos y ajustamos. Si algo no funciona, lo cambiamos; si funciona, lo escalamos.",
-        visual: "/images/careers/medimos.png"
+        visual: "/images/careers/medimos.webp"
     },
     {
         id: "v5",
         title: "Priorizamos el largo plazo.",
         description: "Hacemos las cosas bien desde el principio, aunque tome más esfuerzo hoy. Pensamos en grande y trabajamos, todos los días.",
-        visual: "/images/careers/plazo.png"
+        visual: "/images/careers/plazo.webp"
     }
 ];
 

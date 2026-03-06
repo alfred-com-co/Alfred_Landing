@@ -19,7 +19,7 @@ export function WorkshopCertification() {
                     {/* Watermark Image - Ajustada para móvil */}
                     <div className="absolute right-0 bottom-0 w-[80%] h-[60%] md:right-[-10%] md:top-1/2 md:-translate-y-1/2 md:w-[55%] md:h-[110%] opacity-[0.15] md:opacity-[0.2] pointer-events-none z-0">
                         <Image
-                            src="/images/icono_servicios/talleres.png"
+                            src="/images/icono_servicios/talleres.webp"
                             alt="Workshop Icon Background"
                             fill
                             // En móvil se alinea abajo, en desktop al centro

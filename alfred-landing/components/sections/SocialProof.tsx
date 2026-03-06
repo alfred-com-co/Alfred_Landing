@@ -50,7 +50,7 @@ const clientLogos = [
     "/images/logos/europcar_logo.png",
     "/images/logos/mareauto_logo.png",
     "/images/logos/messer_logo.png",
-    "/images/logos/national_logo.png",
+    "/images/logos/national_logo.webp",
     "/images/logos/precisagro_logo.png",
     "/images/logos/sany_logo.png"
 ];
@@ -441,9 +441,11 @@ export function IndustryRecognition() {
                                 }}
                                 className="relative w-16 md:w-32 h-auto opacity-40 grayscale hover:grayscale-0 transition-all duration-200 cursor-pointer flex items-center justify-center"
                             >
-                                <img
+                                <Image
                                     src={logo}
                                     alt="Press Recognition"
+                                    width={200}
+                                    height={100}
                                     className="w-full h-auto object-contain"
                                 />
                             </motion.div>
@@ -817,9 +819,11 @@ export function SocialProof({ mode }: SocialProofProps) {
                                     }}
                                     className="relative w-16 md:w-32 h-auto opacity-40 grayscale hover:grayscale-0 transition-all duration-200 cursor-pointer flex items-center justify-center"
                                 >
-                                    <img
+                                    <Image
                                         src={logo}
                                         alt="Press Recognition"
+                                        width={200}
+                                        height={100}
                                         className="w-full h-auto object-contain"
                                     />
                                 </motion.div>

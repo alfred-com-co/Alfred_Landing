@@ -319,7 +319,7 @@ export function Hero({ mode, setMode }: HeroProps) {
                                 transition={{ type: "spring", stiffness: 50 }}
                             >
                                 <Image
-                                    src={mode === "personal" ? "/images/key-visuals/kvPersonas.png" : "/images/key-visuals/kvEmpresas.png"}
+                                    src={mode === "personal" ? "/images/key-visuals/kvPersonas.webp" : "/images/key-visuals/kvEmpresas.webp"}
                                     alt={mode === "personal" ? "Alfred Personas" : "Alfred Empresas"}
                                     fill
                                     // object-center garantiza que ambas fotos floten exactamente en el mismo centro matemático de la caja

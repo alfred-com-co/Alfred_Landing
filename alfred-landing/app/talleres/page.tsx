@@ -15,19 +15,19 @@ const benefits = [
         title: "Clientes Recurrentes",
         desc: "Acceso a flotas corporativas y convenios de aseguradoras. Demanda constante sin esfuerzo comercial. Olvídate de los meses bajos, Alfred mantiene tu taller ocupado.",
         icon: <ShieldCheck className="text-alfred-lime" size={32} />,
-        image: "/images/talleres/clientes_recurrentes.png" // Usa una foto de taller real aquí
+        image: "/images/talleres/clientes_recurrentes.webp" // Usa una foto de taller real aquí
     },
     {
         title: "Pagos Garantizados",
         desc: "Alfred gestiona el cobro por ti. Tú te enfocas en el vehículo, nosotros te pagamos puntual y seguro. Sin carteras vencidas ni persiguiendo clientes para que paguen.",
         icon: <Zap className="text-alfred-lime" size={32} />,
-        image: "/images/talleres/pagos_garantizados.png" // Usa una foto de negocios/manos aquí
+        image: "/images/talleres/pagos_garantizados.webp" // Usa una foto de negocios/manos aquí
     },
     {
         title: "Tu Taller, Digitalizado",
         desc: "Usa nuestra App para gestionar órdenes, evidencias y tiempos. Digitaliza tu taller al instante. Elimina el papel y mantén a tus clientes informados en tiempo real.",
         icon: <Smartphone className="text-alfred-lime" size={32} />,
-        image: "/images/talleres/digitaliza_tu_taller.png" // Usa el Mockup de la App aquí
+        image: "/images/talleres/digitaliza_tu_taller.webp" // Usa el Mockup de la App aquí
     }
 ];
 
@@ -73,7 +73,7 @@ export default function TalleresPage() {
                             {/* CAMBIO: aspect-[4/3] es rectangular pero alto. Al combinarlo con el 60% de ancho de columna, la imagen crece en ambas direcciones */}
                             <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl">
                                 <Image
-                                    src="/images/talleres/hero.png"
+                                    src="/images/talleres/hero.webp"
                                     alt="Alfred Partner Mechanic"
                                     fill
                                     className="object-cover"
