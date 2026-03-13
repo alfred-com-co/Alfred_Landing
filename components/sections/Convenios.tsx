@@ -1247,15 +1247,13 @@ export function Convenios({ mode }: ConveniosProps) {
                         <div className="flex justify-center mt-16 lg:mt-20">
                             <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
                                 <span className="text-sm text-white/50 font-medium">¿Quieres ver el logo de tu empresa aquí?</span>
-                                <button
-                                    onClick={() => {
-                                        const el = document.getElementById("contacto");
-                                        if (el) el.scrollIntoView({ behavior: "smooth" });
-                                    }}
+                                {/* CAMBIO: Reemplazado <button> por <Link> */}
+                                <Link
+                                    href="/alianzas"
                                     className="text-sm text-white font-bold ml-0 sm:ml-2 hover:text-[#B4FB00] transition-colors cursor-pointer"
                                 >
                                     Explorar Convenios Corporativos ↗
-                                </button>
+                                </Link>
                             </div>
                         </div>
 
