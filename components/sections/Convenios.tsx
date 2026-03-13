@@ -8,7 +8,7 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 
-import { ChevronDown, CheckCircle2, ShieldCheck, Ticket, Building2, UserCircle2, ArrowRight, X, TrendingUp, BarChart3, Heart, Code2 } from "lucide-react";
+import { ChevronDown, ArrowUpRight, CheckCircle2, ShieldCheck, Ticket, Building2, UserCircle2, ArrowRight, X, TrendingUp, BarChart3, Heart, Code2 } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 
 import NextImage from "next/image";
@@ -1247,13 +1247,15 @@ export function Convenios({ mode }: ConveniosProps) {
                         <div className="flex justify-center mt-16 lg:mt-20">
                             <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
                                 <span className="text-sm text-white/50 font-medium">¿Quieres ver el logo de tu empresa aquí?</span>
-                                {/* CAMBIO: Reemplazado <button> por <Link> */}
+
                                 <Link
                                     href="/alianzas"
-                                    className="text-sm text-white font-bold ml-0 sm:ml-2 hover:text-[#B4FB00] transition-colors cursor-pointer"
+                                    className="group flex items-center text-sm text-white font-bold ml-0 sm:ml-2 hover:text-alfred-lime transition-colors cursor-pointer"
                                 >
-                                    Explorar Convenios Corporativos ↗
+                                    Explorar Convenios Corporativos
+                                    <ArrowUpRight className="w-4 h-4 ml-1 opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                                 </Link>
+
                             </div>
                         </div>
 
