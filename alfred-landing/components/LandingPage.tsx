@@ -18,19 +18,21 @@ import { AnimatePresence, motion } from "framer-motion";
 
 export function LandingPage() {
     const searchParams = useSearchParams();
-    const [mode, setMode] = useState<"personal" | "business" | "alianzas" | "talleres">("personal");
+    const [mode, setMode] = useState<"personal" | "business" | "alianzas" | "talleres" | "careers">("personal");
     const [mounted, setMounted] = useState(false);
 
-    // Initial load: sync mode from URL or localStorage
+    // Initial load: Priorizamos queryMode, si no, personal. Ignoramos localStorage para el primer render.
     useEffect(() => {
         const queryMode = searchParams.get("mode");
-        const savedMode = localStorage.getItem("alfred_mode") as "personal" | "business";
 
-        if (queryMode && ["personal", "business", "alianzas", "talleres"].includes(queryMode)) {
+        // Eliminamos la dependencia de savedMode para el estado inicial
+        if (queryMode && ["personal", "business", "alianzas", "talleres", "careers"].includes(queryMode)) {
             setMode(queryMode as any);
-        } else if (savedMode && ["personal", "business"].includes(savedMode)) {
-            setMode(savedMode);
+        } else {
+            // Aquí es donde sucede la magia: Forzamos personal por defecto.
+            setMode("personal");
         }
+
         setMounted(true);
     }, [searchParams]);
 

@@ -13,6 +13,7 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
 
 import Image from "next/image";
+import { DOWNLOAD_LINK } from "@/lib/constants";
 
 
 
@@ -131,8 +132,8 @@ function NetworkBackground() {
 
 
 interface HeroProps {
-    mode: "personal" | "business" | "alianzas" | "talleres";
-    setMode: (mode: "personal" | "business" | "alianzas" | "talleres") => void;
+    mode: "personal" | "business" | "alianzas" | "talleres" | "careers";
+    setMode: (mode: "personal" | "business" | "alianzas" | "talleres" | "careers") => void;
 }
 
 
@@ -253,26 +254,64 @@ export function Hero({ mode, setMode }: HeroProps) {
                             <div className="relative z-30 flex justify-center lg:justify-start w-full">
                                 {mode === "personal" ? (
                                     /* --- Bloque "Para Ti" --- */
-                                    <div className="flex flex-col xl:flex-row items-center gap-10 mt-2 w-full xl:w-auto">
-                                        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto px-8 sm:px-0">
-                                            <Link href="/asistente" className="block w-full">
-                                                <Button
-                                                    size="lg"
-                                                    className="w-full sm:w-auto h-16 px-12 text-xl font-bold rounded-full shadow-2xl transition-all duration-500 bg-alfred-green text-alfred-navy shadow-[0_0_40px_rgba(21,235,0,0.4)] hover:shadow-[0_0_60px_rgba(21,235,0,0.6)] hover:bg-alfred-lime whitespace-nowrap"
-                                                >
-                                                    Hablar con Alfred
-                                                </Button>
-                                            </Link>
-                                        </motion.div>
-                                        {/* QR Section */}
-                                        <div className="hidden xl:flex items-center gap-6 cursor-pointer group">
-                                            <div className="relative w-24 h-24 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
-                                                <Image src="/images/qr/codigo.webp" alt="Descarga Alfred" fill className="object-contain p-1" sizes="96px" priority />
+                                    <div className="flex flex-col items-center lg:items-start gap-6 mt-2 w-full">
+
+                                        {/* 1. MÓVIL: Botones de Acción Directa (Solo visibles hasta xl) */}
+                                        <div className="flex flex-col gap-4 w-full px-8 sm:px-0 xl:hidden">
+                                            {/* Hablar con Alfred (Prioridad Móvil) */}
+                                            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                                                <Link href="/asistente" className="block w-full">
+                                                    <Button
+                                                        size="lg"
+                                                        className="w-full h-16 text-xl font-bold rounded-full transition-all duration-500 bg-alfred-green text-alfred-navy shadow-[0_0_30px_rgba(21,235,0,0.3)] hover:bg-alfred-lime whitespace-nowrap"
+                                                    >
+                                                        Hablar con Alfred
+                                                    </Button>
+                                                </Link>
+                                            </motion.div>
+
+                                            {/* Descargar App (Secundario en móvil) */}
+                                            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                                                <Link href={DOWNLOAD_LINK} target="_blank" className="block w-full">
+                                                    <Button
+                                                        variant="outline"
+                                                        size="lg"
+                                                        className="w-full h-14 text-lg font-bold rounded-full border-alfred-green text-alfred-green hover:bg-alfred-green/10"
+                                                    >
+                                                        Descargar la App
+                                                    </Button>
+                                                </Link>
+                                            </motion.div>
+                                        </div>
+
+                                        {/* 2. DESKTOP: QR Masivo y Tiendas (Solo visible desde xl) */}
+                                        <div className="hidden xl:flex items-center gap-10 cursor-pointer group">
+                                            {/* QR Agrandado */}
+                                            <div className="relative w-40 h-40 flex-shrink-0 transition-all duration-500 group-hover:scale-110 p-2 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 shadow-[0_0_50px_rgba(180,251,0,0.1)] group-hover:shadow-[0_0_60px_rgba(180,251,0,0.25)]">
+                                                <Image
+                                                    src="/images/qr/codigo.webp"
+                                                    alt="Descarga Alfred"
+                                                    fill
+                                                    className="object-contain p-2"
+                                                    sizes="160px"
+                                                    priority
+                                                />
                                             </div>
-                                            <div className="flex flex-col justify-center h-full gap-3">
-                                                <span className="text-sm text-white/90 uppercase tracking-[0.15em] font-black leading-none">Descárgala en</span>
-                                                <div className="relative w-40 h-12 opacity-100 transition-transform duration-300 group-hover:translate-x-1">
-                                                    <Image src="/images/qr/tienda.png" alt="App Store & Google Play" fill className="object-contain object-left" sizes="160px" priority />
+
+                                            {/* Labels y Tiendas */}
+                                            <div className="flex flex-col justify-center gap-4">
+                                                <span className="text-lg text-white font-black uppercase tracking-[0.2em] leading-none opacity-80 group-hover:opacity-100 group-hover:text-alfred-lime transition-all">
+                                                    Descárgala en
+                                                </span>
+                                                <div className="relative w-56 h-16 transition-transform duration-500 group-hover:translate-x-2">
+                                                    <Image
+                                                        src="/images/qr/tienda.png"
+                                                        alt="App Store & Google Play"
+                                                        fill
+                                                        className="object-contain object-left"
+                                                        sizes="224px"
+                                                        priority
+                                                    />
                                                 </div>
                                             </div>
                                         </div>
@@ -342,7 +381,7 @@ export function Hero({ mode, setMode }: HeroProps) {
 
                 transition={{ duration: 3, repeat: Infinity }}
 
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/20"
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60"
 
             >
 

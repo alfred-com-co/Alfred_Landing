@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { SERVICES_DATA } from '@/lib/services-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://alfred.com.co' // Assuming the production domain
+    const baseUrl = 'https://alfred.co' // Assuming the production domain
 
     const coreRoutes = [
         '',

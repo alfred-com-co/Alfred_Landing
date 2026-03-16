@@ -8,7 +8,7 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 
-import { ChevronDown, CheckCircle2, ShieldCheck, Ticket, Building2, UserCircle2, ArrowRight, X, TrendingUp, BarChart3, Heart, Code2 } from "lucide-react";
+import { ChevronDown, ArrowUpRight, CheckCircle2, ShieldCheck, Ticket, Building2, UserCircle2, ArrowRight, X, TrendingUp, BarChart3, Heart, Code2 } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 
 import NextImage from "next/image";
@@ -799,21 +799,31 @@ export function Convenios({ mode }: ConveniosProps) {
     // Freeze body scroll when modal is open
     useEffect(() => {
         if (showModal) {
-            document.body.classList.add("overflow-hidden");
+            const scrollY = window.scrollY;
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollY}px`;
+            document.body.style.width = '100%';
+            document.body.style.overflowY = 'scroll'; // Cambiado de 'hidden' a 'scroll' para mantener el espacio de la barra
         } else {
-            document.body.classList.remove("overflow-hidden");
+            const scrollY = document.body.style.top;
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            document.body.style.overflowY = '';
+            if (scrollY) {
+                window.scrollTo(0, parseInt(scrollY || '0') * -1);
+            }
         }
-
-        // Cleanup in case component unmounts while modal is open
-        return () => {
-            document.body.classList.remove("overflow-hidden");
-        };
+        // ... resto del return
     }, [showModal]);
 
 
     return (
 
-        <section id="convenios" className={`relative overflow-hidden transition-colors duration-1000 ${mode === "business" ? "bg-[#0B1226] pt-16 lg:pt-32 pb-0" : "bg-alfred-dark border-y border-white/5 py-16 lg:py-16 xl:py-20"} z-20`}>
+        <section
+            id="convenios"
+            className={`relative overflow-hidden ${mode === "business" ? "bg-[#0B1226] pt-16 lg:pt-32 pb-0" : "bg-alfred-dark border-y border-white/5 py-16 lg:py-16 xl:py-20"} z-20`}
+        >
 
 
 
@@ -874,35 +884,21 @@ export function Convenios({ mode }: ConveniosProps) {
                             {/* Massive Ambient Glow - Behind everything */}
 
                             <AnimatePresence>
-
                                 {selectedInsurer && (
-
                                     <motion.div
-
                                         initial={{ opacity: 0, scale: 0.8 }}
-
                                         animate={{ opacity: 1, scale: 1 }}
-
                                         exit={{ opacity: 0, scale: 0.8 }}
-
-                                        className="absolute inset-0 pointer-events-none z-0"
-
+                                        // CAMBIO AQUÍ: Añadimos 'hidden lg:block'
+                                        className="absolute inset-0 pointer-events-none z-0 hidden lg:block"
                                     >
-
                                         <div
-
                                             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] blur-[200px] opacity-40"
-
                                             style={{ backgroundColor: selectedInsurer.color }}
-
                                         />
-
                                     </motion.div>
-
                                 )}
-
                             </AnimatePresence>
-
 
 
                             {/* Main Layout Container */}
@@ -1247,15 +1243,15 @@ export function Convenios({ mode }: ConveniosProps) {
                         <div className="flex justify-center mt-16 lg:mt-20">
                             <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
                                 <span className="text-sm text-white/50 font-medium">¿Quieres ver el logo de tu empresa aquí?</span>
-                                <button
-                                    onClick={() => {
-                                        const el = document.getElementById("contacto");
-                                        if (el) el.scrollIntoView({ behavior: "smooth" });
-                                    }}
-                                    className="text-sm text-white font-bold ml-0 sm:ml-2 hover:text-[#B4FB00] transition-colors cursor-pointer"
+
+                                <Link
+                                    href="/alianzas"
+                                    className="group flex items-center text-sm text-white font-bold ml-0 sm:ml-2 hover:text-alfred-lime transition-colors cursor-pointer"
                                 >
-                                    Explorar Convenios Corporativos ↗
-                                </button>
+                                    Explorar Convenios Corporativos
+                                    <ArrowUpRight className="w-4 h-4 ml-1 opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                                </Link>
+
                             </div>
                         </div>
 
@@ -1289,118 +1285,92 @@ export function Convenios({ mode }: ConveniosProps) {
 
                                     {/* Modal Card */}
                                     <motion.div
-                                        initial={{ scale: 0.9, y: 20 }}
-                                        animate={{ scale: 1, y: 0 }}
-                                        exit={{ scale: 0.9, y: 20 }}
+                                        initial={{ scale: 0.9, opacity: 0 }}
+                                        animate={{ scale: 1, opacity: 1 }}
+                                        exit={{ scale: 0.9, opacity: 0 }}
                                         onClick={(e) => e.stopPropagation()}
-                                        // CAMBIO: Reducimos padding (p-4) para Mac y 2xl se queda con p-8
-                                        className="relative bg-alfred-navy border border-white/10 rounded-3xl p-4 md:p-5 2xl:p-8 max-w-lg 2xl:max-w-xl w-full max-h-[90vh] 2xl:max-h-[85vh] shadow-2xl overflow-y-auto overflow-x-hidden custom-scrollbar"
+                                        className="relative bg-alfred-navy border border-white/10 rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-10 2xl:p-14 max-w-lg lg:max-w-5xl w-full max-h-[92vh] shadow-2xl overflow-y-auto lg:overflow-hidden custom-scrollbar"
                                     >
-                                        {/* Glow accent */}
-                                        <div
-                                            className="absolute -top-20 -right-20 w-48 h-48 blur-[100px] opacity-30 pointer-events-none"
-                                            style={{ backgroundColor: selectedInsurer.color }}
-                                        />
-
-                                        {/* Close button */}
+                                        {/* Botón Cerrar */}
                                         <button
                                             onClick={() => setShowModal(false)}
-                                            className="absolute top-3 right-3 2xl:top-4 2xl:right-4 p-1.5 2xl:p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-20"
+                                            className="absolute top-5 right-5 lg:top-8 lg:right-8 p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors z-30 group"
                                         >
-                                            <X className="text-white/70 w-4 h-4 2xl:w-5 2xl:h-5" />
+                                            <X className="text-white/40 group-hover:text-white" size={24} />
                                         </button>
 
-                                        <div className="relative z-10">
-                                            {/* Header */}
-                                            {/* CAMBIO: Achicamos mb y leading en Mac */}
-                                            <h3 className="text-xl md:text-2xl 2xl:text-3xl font-black text-white mb-0.5 2xl:mb-1 leading-tight">
-                                                Cómo activar tu{' '}
-                                                <span style={{ color: selectedInsurer.color }}>
-                                                    {selectedInsurer.name} Prime
-                                                </span>
-                                            </h3>
-                                            <p className="text-white/50 text-[11px] md:text-xs 2xl:text-sm mb-3 2xl:mb-6">Sigue estos pasos en la app de Alfred</p>
+                                        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 2xl:gap-16 items-center">
 
-                                            {/* Steps Timeline */}
-                                            <div className="space-y-0">
-                                                {(selectedInsurer.id === 'mapfre' ? [
-                                                    { icon: StepIcons.Register, title: 'El Registro', text: 'Descarga Alfred y regístrate con tu correo personal.' },
-                                                    { icon: StepIcons.Garage, title: 'Tu Vehículo', text: "Ve a 'Mi Garaje', selecciona 'Agregar Vehículo' e ingresa tu placa." },
-                                                    { icon: StepIcons.Activation, title: 'La Llave Maestra', text: "Haz clic en el banner principal: 'Activa PRIME con un convenio'." },
-                                                    { icon: StepIcons.Selection, title: 'Selección', text: `En la lista de aliados, selecciona el logo de Mapfre.`, dynamic: true },
-                                                    { icon: StepIcons.Validation, title: 'Validación', text: 'Ingresa tu número de póliza y número de recaudo. ¡Listo!' },
-                                                ] : [
-                                                    { icon: StepIcons.Register, title: 'El Registro', text: 'Descarga Alfred y regístrate con el correo que usaste para comprar tu póliza Zurich.' },
-                                                    { icon: StepIcons.Garage, title: 'Tu Vehículo', text: "Ve a 'Mi Garaje', agrega tu vehículo con la placa asegurada." },
-                                                    { icon: StepIcons.Activation, title: 'La Llave Maestra', text: "Toca 'Activa PRIME con un convenio' en el inicio de la app." },
-                                                    { icon: StepIcons.Selection, title: 'Selección', text: `Elige el logo de Zurich en la lista de aliados.`, dynamic: true },
-                                                    { icon: StepIcons.Validation, title: 'Activación', text: 'Validaremos tu correo instantáneamente. ¡Eso es todo!' },
-                                                ]).map((step, idx, array) => (
-                                                    <motion.div
-                                                        key={idx}
-                                                        initial={{ opacity: 0, x: -20 }}
-                                                        animate={{ opacity: 1, x: 0 }}
-                                                        transition={{ delay: 0.1 + (idx * 0.08) }}
-                                                        className="flex items-start gap-3 md:gap-4 2xl:gap-5"
-                                                    >
-                                                        {/* Timeline connector */}
-                                                        <div className="flex flex-col items-center">
-                                                            <div
-                                                                className="w-8 h-8 md:w-10 md:h-10 2xl:w-12 2xl:h-12 rounded-full flex items-center justify-center border-2 flex-shrink-0 [&>svg]:w-4 [&>svg]:h-4 md:[&>svg]:w-5 md:[&>svg]:h-5 2xl:[&>svg]:w-6 2xl:[&>svg]:h-6"
-                                                                style={{
-                                                                    borderColor: selectedInsurer.color,
-                                                                    backgroundColor: `${selectedInsurer.color}15`
-                                                                }}
-                                                            >
-                                                                {/* El ícono queda limpiecito y TypeScript ya no molesta */}
-                                                                <step.icon color={selectedInsurer.color} />
+                                            {/* COLUMNA IZQUIERDA: Pasos */}
+                                            <div className="lg:col-span-7 w-full">
+                                                <div className="mb-6 lg:mb-8 2xl:mb-10 text-center lg:text-left">
+                                                    <h3 className="text-2xl md:text-3xl 2xl:text-5xl font-black text-white leading-tight tracking-tight">
+                                                        Activa <span style={{ color: selectedInsurer.color }}>{selectedInsurer.name} Prime</span>
+                                                    </h3>
+                                                    <p className="text-white/40 text-[10px] 2xl:text-sm uppercase tracking-[0.3em] mt-2 font-bold">Pasos para redimir en la App</p>
+                                                </div>
+
+                                                <div className="space-y-4 lg:space-y-5 2xl:space-y-7">
+                                                    {(selectedInsurer.id === 'mapfre' ? [
+                                                        { title: 'Registro', text: 'Descarga Alfred y usa tu correo personal.' },
+                                                        { title: 'Vehículo', text: "En 'Mi Garaje', ingresa tu placa." },
+                                                        { title: 'Convenio', text: "Toca 'Activa PRIME con un convenio'." },
+                                                        { title: 'Selección', text: `Elige el logo de Mapfre.`, dynamic: true },
+                                                        { title: 'Finalización', text: 'Ingresa póliza y número de recaudo.' },
+                                                    ] : [
+                                                        { title: 'Registro', text: 'Usa el correo de tu póliza Zurich.' },
+                                                        { title: 'Vehículo', text: "Agrega tu vehículo con la placa asegurada." },
+                                                        { title: 'Convenio', text: "Busca 'Activa PRIME con un convenio'." },
+                                                        { title: 'Selección', text: `Elige el logo de Zurich.`, dynamic: true },
+                                                        { title: 'Activación', text: 'Validación instantánea y automática.' },
+                                                    ]).map((step, idx) => (
+                                                        <div key={idx} className="flex items-start gap-4 2xl:gap-6">
+                                                            <div className="w-6 h-6 2xl:w-8 2xl:h-8 rounded-full flex items-center justify-center border-2 text-[10px] 2xl:text-sm font-black flex-shrink-0 mt-0.5"
+                                                                style={{ borderColor: selectedInsurer.color, color: selectedInsurer.color, backgroundColor: `${selectedInsurer.color}15` }}>
+                                                                {idx + 1}
                                                             </div>
-                                                            {idx < array.length - 1 && (
-                                                                <div
-                                                                    className="w-[2px] h-6 md:h-8 2xl:h-14 mt-1"
-                                                                    style={{ backgroundColor: `${selectedInsurer.color}30` }}
-                                                                />
-                                                            )}
+                                                            <div>
+                                                                <h5 className="font-black text-white text-sm 2xl:text-xl flex items-center gap-2">
+                                                                    {step.title}
+                                                                    {step.dynamic && <NextImage src={selectedInsurer.logo} alt="" width={30} height={12} className="object-contain opacity-70 2xl:w-[45px]" />}
+                                                                </h5>
+                                                                <p className="text-[11px] 2xl:text-base text-white/50 leading-snug mt-0.5 font-medium">{step.text}</p>
+                                                            </div>
                                                         </div>
-
-                                                        {/* Step content */}
-                                                        <div className="flex-1 pb-2 md:pb-3 2xl:pb-8">
-                                                            <h5 className="font-bold text-white text-sm md:text-base 2xl:text-lg flex items-center gap-2">
-                                                                Paso {idx + 1}: {step.title}
-                                                                {step.dynamic && (
-                                                                    <NextImage
-                                                                        src={selectedInsurer.logo}
-                                                                        alt={selectedInsurer.name}
-                                                                        width={40}
-                                                                        height={16}
-                                                                        className="object-contain w-[40px] 2xl:w-[50px]"
-                                                                    />
-                                                                )}
-                                                            </h5>
-                                                            <p className="text-[10px] md:text-[11px] 2xl:text-sm text-white/50 mt-0.5 2xl:mt-1 leading-tight 2xl:leading-relaxed">
-                                                                {step.text}
-                                                            </p>
-                                                        </div>
-                                                    </motion.div>
-                                                ))}
+                                                    ))}
+                                                </div>
                                             </div>
 
-                                            {/* CTA Button */}
-                                            <a
-                                                href={DOWNLOAD_LINK}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="w-full block mt-1 2xl:mt-2"
-                                                onClick={() => setShowModal(false)}
-                                            >
-                                                <Button
-                                                    size="lg"
-                                                    // CAMBIO: mt-1 y py-2.5 para Mac
-                                                    className="w-full bg-alfred-lime text-alfred-navy font-black py-2.5 md:py-3 2xl:py-6 rounded-xl text-sm md:text-base hover:scale-[1.02] transition-transform"
-                                                >
-                                                    Entendido, Ir a la App
-                                                </Button>
-                                            </a>
+                                            {/* COLUMNA DERECHA: QR (Desktop) o Botón (Móvil) */}
+                                            <div className="lg:col-span-5 w-full flex flex-col items-center justify-center lg:border-l lg:border-white/10 lg:pl-10 2xl:pl-16 py-4 lg:py-6 mt-4 lg:mt-0">
+
+                                                {/* BOTÓN MÓVIL: Visible hasta lg */}
+                                                <div className="lg:hidden w-full">
+                                                    <a href={DOWNLOAD_LINK} target="_blank" rel="noopener noreferrer" className="block w-full">
+                                                        <Button
+                                                            size="lg"
+                                                            className="w-full bg-alfred-lime text-alfred-navy font-black py-7 rounded-2xl text-base uppercase tracking-widest shadow-lg active:scale-95 transition-transform"
+                                                        >
+                                                            Descargar la App
+                                                        </Button>
+                                                    </a>
+                                                </div>
+
+                                                {/* QR DESKTOP: Visible desde lg */}
+                                                <div className="hidden lg:flex flex-col items-center gap-6 2xl:gap-8 text-center">
+                                                    <div className="relative w-32 h-32 2xl:w-48 2xl:h-48 drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:scale-105 transition-transform duration-500">
+                                                        <NextImage src="/images/qr/codigo.webp" alt="QR" fill className="object-contain" priority />
+                                                    </div>
+
+                                                    <div className="space-y-3 2xl:space-y-4">
+                                                        <p className="text-[9px] 2xl:text-xs text-white/50 font-black uppercase tracking-[0.4em] leading-none">Escanea para descargar</p>
+                                                        <div className="relative w-40 h-10 2xl:w-56 2xl:h-14 opacity-90 transition-all hover:opacity-100">
+                                                            <NextImage src="/images/qr/tienda.png" alt="Stores" fill className="object-contain" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </motion.div>
 

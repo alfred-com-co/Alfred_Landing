@@ -23,7 +23,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://alfred.com.co'),
+  metadataBase: new URL('https://alfred.co'),
   title: "Alfred | Tu ecosistema de servicios automotrices",
   description: "Alfred conecta tu vehículo con seguros, talleres, conductores y todo lo que necesitas. Sin fricción.",
   icons: {
@@ -38,24 +38,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="scroll-smooth">
+      <GoogleAnalytics gaId="G-3SYJWSV7FV" />
       <body className={`${gotham.variable} ${jakarta.variable} antialiased bg-[#020D20] text-white`}>
 
-        {/* ========================================= */}
-        {/* 2. ETIQUETA GLOBAL DE GOOGLE ADS */}
-        {/* ========================================= */}
-        <GoogleAnalytics gaId="G-3SYJWSV7FV" />
-        {/* Google Ads Tag is actually often handled by the same gtag.js. 
-            If you need both explicitly, or if one is a sub-tag, 
-            GA4 often takes precedence as the primary container.
-            Update: Standard Next.js practice for dual tagging is to use the primary ID.
-        */}
-        {/* ========================================= */}
-
         {children}
-
-        {/* ========================================= */}
-        {/* 3. SCHEMA.ORG (JSON-LD) - SEO SEMÁNTICO */}
-        {/* ========================================= */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -64,8 +50,8 @@ export default function RootLayout({
                 "@context": "https://schema.org",
                 "@type": "Organization",
                 "name": "Alfred",
-                "url": "https://alfred.com.co",
-                "logo": "https://alfred.com.co/images/logos/azul oscuro plano.png",
+                "url": "https://alfred.co",
+                "logo": "https://alfred.co/images/logos/azul oscuro plano.png",
                 "sameAs": [
                   "https://www.instagram.com/alfred_colombia/",
                   "https://www.linkedin.com/company/alfred-automotriz/"
