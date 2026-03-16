@@ -27,28 +27,28 @@ const features = [
         title: "Visibilidad",
         sub: "Tableros que hablan claro. Entiende tus costos y la salud de tu flota al instante.",
         icon: BarChart3,
-        image: "/images/saas_features/Visibilidad_tiempo_real.jpeg"
+        image: "/images/saas_features/visibilidad_tiempo_real.webp"
     },
     {
         id: "error-humano",
         title: "Notificaciones",
         sub: "Alfred te acuerda. Alertas preventivas antes de que un descuido te cueste.",
         icon: ShieldAlert,
-        image: "/images/saas_features/Fin_Error_Humano.jpeg"
+        image: "/images/saas_features/fin_error_humano.webp"
     },
     {
         id: "protocolos",
         title: "Protocolos",
         sub: "Inspecciones fotográficas obligatorias desde el celular, notificando novedades al instante.",
         icon: ClipboardCheck,
-        image: "/images/saas_features/Protocolos_digitales.jpeg"
+        image: "/images/saas_features/protocolos_digitales.webp"
     },
     {
         id: "gps",
         title: "Rastreo",
         sub: "Rastreo satelital integrado. Controla rutas, tiempos y evita desvíos no autorizados.",
         icon: MapPin,
-        image: "/images/saas_features/GPS_mode.jpeg"
+        image: "/images/saas_features/gps_mode.webp"
     }
 ];
 
