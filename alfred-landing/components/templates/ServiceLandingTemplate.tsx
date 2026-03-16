@@ -92,40 +92,66 @@ export default function ServiceLandingTemplate({
             <Navbar mode={mode as any} setMode={() => { }} lean />
 
             {/* 1. HERO SECTION */}
-            <section className="relative min-h-[90vh] md:h-screen flex items-center pt-24 pb-12 overflow-hidden">
+            <section className="relative h-[90vh] md:h-screen flex items-center pt-24 pb-12 overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src={data.hero.image}
+                        src={data.hero.image.trim()}
                         alt={data.name}
                         fill
-                        className="object-cover opacity-30 md:opacity-40 grayscale-[0.5]"
+                        className="object-cover opacity-60 md:opacity-70"
                         sizes="100vw"
                         priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#111E3E]/60 via-[#111E3E] to-[#111E3E] md:bg-gradient-to-r md:from-[#111E3E] md:via-[#111E3E]/80 md:to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#111E3E] via-[#111E3E]/20 to-[#111E3E] md:bg-gradient-to-r md:from-[#111E3E] md:via-transparent md:to-transparent z-10" />
                 </div>
 
-                <div className="container mx-auto px-6 md:px-12 relative z-10">
+                <div className="container mx-auto px-6 md:px-12 relative z-20">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="max-w-3xl"
                     >
-                        <h1 className="text-4xl md:text-7xl font-black mb-6 leading-tight md:leading-[1.1] text-left">
+                        <h1 className="text-4xl md:text-7xl font-black mb-6 leading-tight md:leading-[1.1] text-left drop-shadow-2xl">
                             {data.hero.title}
                         </h1>
-                        <p className="text-lg md:text-2xl text-white/70 mb-8 md:mb-10 leading-relaxed font-light text-left">
+                        <p className="text-lg md:text-2xl text-white mb-8 md:mb-10 leading-relaxed font-medium text-left drop-shadow-lg max-w-2xl">
                             {data.hero.subtext}
                         </p>
                         <div className="flex flex-col md:flex-row gap-4">
                             <a href={ctaLink} target={isBusiness ? "_self" : "_blank"} rel="noopener noreferrer" className="w-full md:w-auto">
-                                <Button size="lg" className="h-16 w-full md:px-10 text-lg shadow-[0_4px_20px_rgba(180,251,0,0.3)]">
+                                <Button size="lg" className="h-16 w-full md:px-10 text-lg shadow-[0_4px_30px_rgba(180,251,0,0.4)] bg-alfred-lime text-alfred-navy font-black hover:bg-white transition-all">
                                     {data.hero.ctaText}
                                 </Button>
                             </a>
                         </div>
                     </motion.div>
                 </div>
+
+                {/* BOTÓN EXPLORA: Fuera del container, directo al section */}
+                <motion.button
+                    onClick={() => {
+                        window.scrollTo({
+                            top: window.innerHeight - 80,
+                            behavior: "smooth"
+                        });
+                    }}
+                    initial={{ opacity: 0 }}
+                    animate={{
+                        y: [0, 12, 0],
+                        opacity: 1
+                    }}
+                    transition={{
+                        opacity: { duration: 1 },
+                        y: { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
+                    }}
+                    // Usamos fixed temporalmente si absolute falla, pero con absolute y z-50 debería bastar
+                    className="absolute bottom-12 left-1/2 -translate-x-1/2 z-[9999] flex flex-col items-center group cursor-pointer bg-transparent border-none outline-none p-4"
+                >
+                    <span className="text-[10px] sm:text-xs tracking-[0.5em] uppercase mb-2 font-black text-white/80 group-hover:text-alfred-lime transition-colors drop-shadow-md">
+                        Explora
+                    </span>
+                    <ChevronDown size={32} className="text-alfred-lime group-hover:scale-110 transition-transform drop-shadow-[0_0_15px_rgba(180,251,0,0.6)]" />
+                </motion.button>
             </section>
 
             {/* 2. PROBLEM VS SOLUTION */}
