@@ -23,7 +23,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://alfred.com.co'),
+  metadataBase: new URL('https://alfred.co'),
   title: "Alfred | Tu ecosistema de servicios automotrices",
   description: "Alfred conecta tu vehículo con seguros, talleres, conductores y todo lo que necesitas. Sin fricción.",
   icons: {
@@ -50,8 +50,8 @@ export default function RootLayout({
                 "@context": "https://schema.org",
                 "@type": "Organization",
                 "name": "Alfred",
-                "url": "https://alfred.com.co",
-                "logo": "https://alfred.com.co/images/logos/azul oscuro plano.png",
+                "url": "https://alfred.co",
+                "logo": "https://alfred.co/images/logos/azul oscuro plano.png",
                 "sameAs": [
                   "https://www.instagram.com/alfred_colombia/",
                   "https://www.linkedin.com/company/alfred-automotriz/"
