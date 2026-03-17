@@ -119,7 +119,7 @@ export default function CareersClient() {
 
     return (
         <main className="min-h-screen bg-[#111E3E] text-white selection:bg-alfred-lime selection:text-[#111E3E] font-sans overflow-x-hidden">
-            <Navbar mode="careers" setMode={() => { }} />
+            <Navbar mode="careers" />
 
             {/* SECTION 1 */}
             <section ref={heroRef} className="relative h-[150vh] bg-black">

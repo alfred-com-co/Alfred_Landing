@@ -35,7 +35,7 @@ export default function TalleresClient() {
 
     return (
         <main className="min-h-screen bg-alfred-dark text-white selection:bg-alfred-lime selection:text-alfred-navy">
-            <Navbar mode={mode} setMode={setMode} />
+            <Navbar mode={mode} />
 
             {/* Hero Section */}
             <section className="relative pt-32 pb-24 overflow-hidden border-b border-white/5">

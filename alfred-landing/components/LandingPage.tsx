@@ -52,7 +52,7 @@ export function LandingPage() {
 
     return (
         <main className="min-h-screen bg-alfred-dark text-white selection:bg-alfred-lime selection:text-alfred-blue">
-            <Navbar mode={mode} setMode={setMode} />
+            <Navbar mode={mode} />
 
             <Hero mode={mode} setMode={setMode} />
 

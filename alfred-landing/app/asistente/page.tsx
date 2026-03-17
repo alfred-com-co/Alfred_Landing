@@ -10,7 +10,7 @@ export default function AsistentePage() {
 
     return (
         <main className="min-h-screen bg-alfred-dark selection:bg-alfred-lime selection:text-alfred-navy overflow-hidden">
-            <Navbar mode={mode} setMode={setMode} />
+            <Navbar mode={mode} />
 
             {/* Ambient Background Effects */}
             <div className="fixed inset-0 pointer-events-none">

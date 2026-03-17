@@ -10,7 +10,7 @@ export default function AlianzasPage() {
 
     return (
         <main className="min-h-screen bg-alfred-dark text-white selection:bg-alfred-lime selection:text-alfred-blue font-sans">
-            <Navbar mode={mode} setMode={setMode} />
+            <Navbar mode={mode} />
             <Convenios mode="business" />
             <Footer />
         </main>

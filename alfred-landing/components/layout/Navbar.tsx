@@ -10,7 +10,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 interface NavbarProps {
     mode: "personal" | "business" | "alianzas" | "talleres" | "careers";
-    setMode?: (mode: "personal" | "business" | "alianzas" | "talleres" | "careers") => void;
     lean?: boolean;
 }
 
@@ -50,7 +49,7 @@ const navLinks = {
     ]
 };
 
-export function Navbar({ mode, setMode, lean = false }: NavbarProps) {
+export function Navbar({ mode, lean = false }: NavbarProps) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState("");

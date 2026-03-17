@@ -8,7 +8,7 @@ export default function TerminosPage() {
     const [mode, setMode] = useState<"personal" | "business" | "alianzas" | "talleres">("personal");
     return (
         <main className="min-h-screen bg-alfred-dark text-white selection:bg-alfred-lime selection:text-alfred-blue">
-            <Navbar mode={mode} setMode={setMode} />
+            <Navbar mode={mode} />
 
             <div className="pt-32 pb-20 container mx-auto px-6 max-w-4xl">
                 <div className="space-y-8 text-white/80 leading-relaxed font-jakarta">

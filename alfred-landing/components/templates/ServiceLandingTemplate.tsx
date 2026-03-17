@@ -89,7 +89,7 @@ export default function ServiceLandingTemplate({
 
     return (
         <div className="bg-[#111E3E] min-h-screen text-white overflow-hidden">
-            <Navbar mode={mode as any} setMode={() => { }} lean />
+            <Navbar mode={mode as any} lean />
 
             {/* 1. HERO SECTION */}
             <section className="relative min-h-[90vh] md:h-screen flex items-center pt-24 pb-12 overflow-hidden">
